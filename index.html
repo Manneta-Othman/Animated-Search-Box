@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
+    <title>Animated Search Box</title>
+</head>
+<body>
+    <div class="search-field">
+        <input type="text" name="search" class="input" placeholder="Type to search ..">
+        <span class="search-btn"><i class="uil uil-search"></i></span>
+        <span class="close-btn"><i class="uil uil-times"></i></span>
+        <p></p>
+    </div>
+         
+</body>
+
+<script>
+    const searchField = document.querySelector('.search-field'),
+          input = document.querySelector('.search-field .input'),
+          searchBtn = document.querySelector('.search-field .search-btn'),
+          closeBtn = document.querySelector('.search-field .close-btn'),
+          txt = document.querySelector('.search-field p');
+
+
+    searchBtn.onclick = () => {
+        if(input.value){
+                        txt.innerHTML = `You've just typed: ${input.value}`;
+        }
+            searchField.classList.add('active');
+            searchBtn.classList.add('active');
+            input.style.opacity = "1";
+            closeBtn.style.opacity = "1";
+    }
+
+    closeBtn.onclick = () => {
+        searchField.classList.remove('active');
+        searchBtn.classList.remove('active');
+        input.style.opacity = "0";
+        closeBtn.style.opacity = "0";
+        txt.innerHTML = "";
+    }
+
+
+</script>
+
+</html>
